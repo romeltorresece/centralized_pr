@@ -14,6 +14,14 @@ class GitCommand {
         /*
             Create logic here and run unit testing.
         */
+        let changes = 0;
+        let output = "";
+        for (let file_path in this.working_directory.new_changes) {
+            changes++;
+            output += `\n${file_path}`;
+        }
+        output = `You have ${changes} change/s.${output || "\n"}`;
+        return output;
     }
 
     //Command: git add <filename/file directory/wildcard> 
